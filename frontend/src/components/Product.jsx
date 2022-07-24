@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import PropTypes from 'prop-types'
+import Rating from '../components/Rating';
 
 const Product = ({product}) => {
   return (
@@ -15,7 +17,7 @@ const Product = ({product}) => {
             </a>
             <Card.Text as='div'>
                 <div className='my-3'>
-                    {product.rating} from {product.numReviews} reviews
+                    <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                 </div>
             </Card.Text>
             <Card.Text as='h3'>{product.price}</Card.Text>
@@ -23,6 +25,16 @@ const Product = ({product}) => {
 
     </Card>
   )
+}
+
+Rating.defaultProps = {
+    color: '#f8e825'
+}
+
+Rating.propTypes = {
+    value: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string
 }
 
 export default Product
