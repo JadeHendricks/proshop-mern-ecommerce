@@ -1,6 +1,7 @@
 import express from "express";
 import asyncHandler from 'express-async-handler';
 import Product from "../models/productModel.js";
+
 const router = express.Router();
 
 router.get("/", asyncHandler(async (req, res) => {
